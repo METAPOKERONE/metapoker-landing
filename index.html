@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E⚙️♣️%3C/text%3E%3C/svg%3E" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E♣️%3C/text%3E%3C/svg%3E" />
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="description" content="METAPOKER – Desarrollo integral para jugadores de póker.">
@@ -32,9 +32,11 @@
   <div class="container">
     <h2 class="section-title">Nuestra Propuesta de Valor</h2>
     <div class="value-cards">
-      <div class="value-card glass-card"><div class="value-icon"><i class="fas fa-bullseye" style="font-size: 3.5rem; color: #a5cffc;"></i></div><h3>El Porqué</h3><p>Un propósito más allá del dinero que te motive a ser un profesional.</p></div>
+      <div class="value-card glass-card">
+        <div class="value-icon"><i class="fas fa-bullseye-arrow" style="font-size:3.5rem;color:#f59e0b;filter:drop-shadow(0 0 8px #f59e0b);"></i></div><h3>El Porqué</h3><p>Un propósito más allá del dinero que te motive a ser un profesional.</p></div>
       <div class="value-card glass-card"><div class="value-icon">���</div><h3>El Qué</h3><p>La estrategia correcta, sustentada por tecnologías de vanguardia.</p></div>
-      <div class="value-card glass-card"><div class="value-icon"><i class="fas fa-bolt" style="font-size: 3.5rem; color: #a5cffc;"></i></div><h3>El Cómo</h3><p>La ejecución consistente y la aplicación de esa estrategia en el juego real.</p></div>
+      <div class="value-card glass-card">
+        <div class="value-icon"><i class="fas fa-bolt-lightning" style="font-size:3.5rem;color:#22d3ee;filter:drop-shadow(0 0 8px #22d3ee);"></i></div><h3>El Cómo</h3><p>La ejecución consistente y la aplicación de esa estrategia en el juego real.</p></div>
     </div>
   </div>
 </section>
@@ -92,14 +94,15 @@
   <div class="container">
     <h2 class="section-title">Conoce a nuestro Facilitador</h2>
     <div class="facilitator-single">
-      <div class="facilitator-round">
-        <div class="facilitator-photo" style="background: linear-gradient(135deg, #58a6ff, #7c3aed); display: flex; align-items: center; justify-content: center;"><i class="fas fa-user" style="font-size: 8rem; color: white;"></i></div>
       </div>
       <div class="facilitator-content-full">
         <div class="facilitator-icon-top">
           <i class="fa-solid fa-chalkboard-user"></i>
         </div>
         <div class="facilitator-name-group">
+        <div class="facilitator-icon-only" style="text-align:center;margin-bottom:1.5rem;">
+          <i class="fas fa-user-graduate" style="font-size:5rem;color:#58a6ff;filter:drop-shadow(0 0 10px #58a6ff);"></i>
+        </div>
           <h3 class="facilitator-name">Miguel Sáenz</h3>
           <div class="facilitator-badge-inline">
             <svg width="28" height="28" fill="currentColor" viewBox="0 0 20 20">
@@ -130,10 +133,10 @@
     <p class="section-description">Reserva tu sesión estratégica gratuita y descubre cómo podemos ayudarte a crear un plan personalizado que se ajuste a tus necesidades.</p>
     <form id="schedule-form" class="contact-form glass-card">
       <div class="form-row">
-        <div class="form-group"><label for="name">Tu Nombre *</label><input type="text" id="name" name="name" autocomplete="name" required placeholder="Ej: Juan Pérez"></div>
+        <div class="form-group"><label for="name">��� Tu Nombre *</label><input type="text" id="name" name="name" autocomplete="name" required placeholder="Ej: Juan Pérez"></div>
         <div class="form-group"><label for="country">País *</label><input type="text" id="country" name="country" autocomplete="country" required placeholder="Ej: México"></div>
       </div>
-      <div class="form-group"><label for="datetime">Fecha y Hora Preferida *</label><input type="datetime-local" id="datetime" name="datetime" required pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}"></div>
+      <div class="form-group"><label for="datetime">���⏰ Fecha y Hora Preferida *</label><input type="datetime-local" id="datetime" name="datetime" required pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}"></div>
       <div class="form-group"><label for="purpose">Cuéntanos brevemente sobre tu situación actual *</label><textarea id="purpose" name="purpose" rows="4" maxlength="500" placeholder="Ej: Me gustaría mejorar mi consistencia y tomar mejores decisiones en el juego..." required></textarea><small id="purpose-help" class="form-help">��� Esto nos ayudará a crear un plan que se ajuste perfectamente a tus necesidades</small></div>
       <button type="submit" class="btn-primary btn-large">Crear Mi Plan Personalizado</button>
     </form>
