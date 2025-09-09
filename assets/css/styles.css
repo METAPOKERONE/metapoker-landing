@@ -1514,3 +1514,315 @@ body{margin:0;font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;ba
   }
 }
 [Copia el CSS completo de arriba]
+
+/* ===== BADGES ULTRA LIMPIOS - SIN EMOJIS + CONTORNOS PERFECTOS ===== */
+.plan-badge, .popular-badge {
+  position: absolute;
+  top: -12px;  /* Más arriba para que el contorno se vea perfecto */
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.9rem;  /* Más grande */
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding: 0.6rem 1.2rem;  /* Más espacio */
+  border-radius: 16px;
+  backdrop-filter: blur(25px);
+  border: 3px solid;  /* Contorno más grueso y visible */
+  display: flex;
+  align-items: center;
+  gap: 0;  /* Sin gap porque no hay emojis */
+  white-space: nowrap;
+  z-index: 10;
+  
+  /* CONTORNO SUPERIOR PERFECTO */
+  box-shadow: 
+    0 -2px 0 0 currentColor,  /* Contorno superior que se ve */
+    0 0 0 1px rgba(0,0,0,0.1),
+    0 10px 40px rgba(0,0,0,0.2),
+    inset 0 1px 0 rgba(255,255,255,0.2);
+}
+
+/* SIN EMOJIS - Solo texto puro y limpio */
+.plan-badge[for="micro"]::before,
+.popular-badge[for="recommended"]::before,
+.plan-badge[for="elite"]::before {
+  content: none;  /* Eliminar completamente los emojis */
+}
+
+/* MicroLímites - Rosa puro sin emoji */
+.plan-badge[for="micro"] {
+  background: linear-gradient(135deg, 
+    rgba(236, 72, 153, 0.98), 
+    rgba(219, 39, 119, 0.98));
+  color: #ffffff;
+  border-color: #ec4899;
+  border-top-color: #ff6bb3;  /* Color más claro en el borde superior */
+  text-shadow: 0 0 15px rgba(236, 72, 153, 0.9);
+  box-shadow: 
+    0 -3px 0 0 #ff6bb3,  /* Contorno superior brillante */
+    0 0 0 1px rgba(236, 72, 153, 0.3),
+    0 10px 40px rgba(236, 72, 153, 0.4);
+}
+
+/* Recomendado - Azul puro sin emoji */
+.popular-badge[for="recommended"] {
+  background: linear-gradient(135deg, 
+    rgba(59, 130, 246, 0.98), 
+    rgba(29, 78, 216, 0.98));
+  color: #ffffff;
+  border-color: #3b82f6;
+  border-top-color: #60a5fa;  /* Color más claro en el borde superior */
+  text-shadow: 0 0 15px rgba(59, 130, 246, 0.9);
+  box-shadow: 
+    0 -3px 0 0 #60a5fa,  /* Contorno superior brillante */
+    0 0 0 1px rgba(59, 130, 246, 0.3),
+    0 10px 40px rgba(59, 130, 246, 0.4);
+}
+
+/* Elite - Negro con dorado radiante sin emoji */
+.plan-badge[for="elite"] {
+  background: linear-gradient(135deg, 
+    rgba(0, 0, 0, 0.99), 
+    rgba(17, 24, 39, 0.99));
+  color: #fbbf24;
+  border-color: #fbbf24;
+  border-top-color: #fcd34d;  /* Dorado más claro en el borde superior */
+  border-width: 3px;
+  text-shadow: 0 0 15px rgba(251, 191, 36, 0.95);
+  box-shadow: 
+    0 -3px 0 0 #fcd34d,  /* Contorno superior dorado brillante */
+    0 0 0 1px rgba(251, 191, 36, 0.5),
+    0 10px 40px rgba(251, 191, 36, 0.6);
+}
+
+/* EFECTOS HOVER MÁS DRAMÁTICOS */
+.pricing-card:hover .plan-badge,
+.pricing-card:hover .popular-badge {
+  transform: translateX(-50%) translateY(-4px) scale(1.1);
+  box-shadow: 
+    0 -4px 0 0 currentColor,  /* Contorno superior más grande en hover */
+    0 20px 60px rgba(0,0,0,0.3),
+    inset 0 1px 0 rgba(255,255,255,0.3);
+}
+
+/* ESPACIO ADICIONAL PARA QUE NO QUEDEN APRETADOS */
+.pricing-header {
+  margin-bottom: 5rem;  /* Mucho más espacio */
+  padding-top: 3rem;    /* Mucho más espacio superior */
+}
+
+/* HEADER CON TÍTULOS MÁS GRANDES */
+.pricing-header h3 {
+  font-size: 2.4rem;  /* Mucho más grande */
+  margin-bottom: 1rem;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.plan-focus {
+  font-size: 1.2rem;  /* Mucho más grande */
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+/* RESPONSIVE CON TAMAÑOS ADECUADOS */
+@media (max-width: 768px) {
+  .plan-badge, .popular-badge {
+    font-size: 0.8rem;  /* Más grande en móvil */
+    padding: 0.5rem 1rem;
+    border-width: 2px;
+    top: -8px;  /* Ajustado para móvil */
+  }
+  
+  .pricing-header h3 {
+    font-size: 1.8rem;  /* Más grande en móvil */
+  }
+  
+  .plan-focus {
+    font-size: 1rem;  /* Más grande en móvil */
+  }
+}
+
+/* GLASSMORPHISM TOTAL CON CONTORNO SUPERIOR */
+.pricing-card {
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border: 1px solid rgba(255,255,255,0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Luz sutil en el borde */
+.pricing-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.pricing-card:hover::before {
+  opacity: 1;
+}
+
+/* ===== BADGES ULTRA LIMPIOS - SIN EMOJIS + CONTORNOS PERFECTOS ===== */
+.plan-badge, .popular-badge {
+  position: absolute;
+  top: -12px;  /* Más arriba para que el contorno se vea perfecto */
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.9rem;  /* Más grande */
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding: 0.6rem 1.2rem;  /* Más espacio */
+  border-radius: 16px;
+  backdrop-filter: blur(25px);
+  border: 3px solid;  /* Contorno más grueso y visible */
+  display: flex;
+  align-items: center;
+  gap: 0;  /* Sin gap porque no hay emojis */
+  white-space: nowrap;
+  z-index: 10;
+  
+  /* CONTORNO SUPERIOR PERFECTO */
+  box-shadow: 
+    0 -2px 0 0 currentColor,  /* Contorno superior que se ve */
+    0 0 0 1px rgba(0,0,0,0.1),
+    0 10px 40px rgba(0,0,0,0.2),
+    inset 0 1px 0 rgba(255,255,255,0.2);
+}
+
+/* SIN EMOJIS - Solo texto puro y limpio */
+.plan-badge[for="micro"]::before,
+.popular-badge[for="recommended"]::before,
+.plan-badge[for="elite"]::before {
+  content: none;  /* Eliminar completamente los emojis */
+}
+
+/* MicroLímites - Rosa puro sin emoji */
+.plan-badge[for="micro"] {
+  background: linear-gradient(135deg, 
+    rgba(236, 72, 153, 0.98), 
+    rgba(219, 39, 119, 0.98));
+  color: #ffffff;
+  border-color: #ec4899;
+  border-top-color: #ff6bb3;  /* Color más claro en el borde superior */
+  text-shadow: 0 0 15px rgba(236, 72, 153, 0.9);
+  box-shadow: 
+    0 -3px 0 0 #ff6bb3,  /* Contorno superior brillante */
+    0 0 0 1px rgba(236, 72, 153, 0.3),
+    0 10px 40px rgba(236, 72, 153, 0.4);
+}
+
+/* Recomendado - Azul puro sin emoji */
+.popular-badge[for="recommended"] {
+  background: linear-gradient(135deg, 
+    rgba(59, 130, 246, 0.98), 
+    rgba(29, 78, 216, 0.98));
+  color: #ffffff;
+  border-color: #3b82f6;
+  border-top-color: #60a5fa;  /* Color más claro en el borde superior */
+  text-shadow: 0 0 15px rgba(59, 130, 246, 0.9);
+  box-shadow: 
+    0 -3px 0 0 #60a5fa,  /* Contorno superior brillante */
+    0 0 0 1px rgba(59, 130, 246, 0.3),
+    0 10px 40px rgba(59, 130, 246, 0.4);
+}
+
+/* Elite - Negro con dorado radiante sin emoji */
+.plan-badge[for="elite"] {
+  background: linear-gradient(135deg, 
+    rgba(0, 0, 0, 0.99), 
+    rgba(17, 24, 39, 0.99));
+  color: #fbbf24;
+  border-color: #fbbf24;
+  border-top-color: #fcd34d;  /* Dorado más claro en el borde superior */
+  border-width: 3px;
+  text-shadow: 0 0 15px rgba(251, 191, 36, 0.95);
+  box-shadow: 
+    0 -3px 0 0 #fcd34d,  /* Contorno superior dorado brillante */
+    0 0 0 1px rgba(251, 191, 36, 0.5),
+    0 10px 40px rgba(251, 191, 36, 0.6);
+}
+
+/* EFECTOS HOVER MÁS DRAMÁTICOS */
+.pricing-card:hover .plan-badge,
+.pricing-card:hover .popular-badge {
+  transform: translateX(-50%) translateY(-4px) scale(1.1);
+  box-shadow: 
+    0 -4px 0 0 currentColor,  /* Contorno superior más grande en hover */
+    0 20px 60px rgba(0,0,0,0.3),
+    inset 0 1px 0 rgba(255,255,255,0.3);
+}
+
+/* ESPACIO ADICIONAL PARA QUE NO QUEDEN APRETADOS */
+.pricing-header {
+  margin-bottom: 5rem;  /* Mucho más espacio */
+  padding-top: 3rem;    /* Mucho más espacio superior */
+}
+
+/* HEADER CON TÍTULOS MÁS GRANDES */
+.pricing-header h3 {
+  font-size: 2.4rem;  /* Mucho más grande */
+  margin-bottom: 1rem;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.plan-focus {
+  font-size: 1.2rem;  /* Mucho más grande */
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+/* RESPONSIVE CON TAMAÑOS ADECUADOS */
+@media (max-width: 768px) {
+  .plan-badge, .popular-badge {
+    font-size: 0.8rem;  /* Más grande en móvil */
+    padding: 0.5rem 1rem;
+    border-width: 2px;
+    top: -8px;  /* Ajustado para móvil */
+  }
+  
+  .pricing-header h3 {
+    font-size: 1.8rem;  /* Más grande en móvil */
+  }
+  
+  .plan-focus {
+    font-size: 1rem;  /* Más grande en móvil */
+  }
+}
+
+/* GLASSMORPHISM TOTAL CON CONTORNO SUPERIOR */
+.pricing-card {
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border: 1px solid rgba(255,255,255,0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Luz sutil en el borde */
+.pricing-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.pricing-card:hover::before {
+  opacity: 1;
+}
