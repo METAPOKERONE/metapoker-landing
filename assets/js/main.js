@@ -58,3 +58,48 @@ let touchStartX=0;carousel.addEventListener('touchstart',e=>{touchStartX=e.chang
 document.addEventListener('keydown',e=>{if(e.target.tagName==='INPUT'||e.target.tagName==='TEXTAREA')return;if(e.key==='ArrowLeft')moveCarousel(-1);if(e.key==='ArrowRight')moveCarousel(1);});
 const observer=new IntersectionObserver((entries)=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.style.opacity='1';entry.target.style.transform='translateY(0)';observer.unobserve(entry.target);}});},{threshold:0.1,rootMargin:'0px 0px -100px 0px'});
 document.querySelectorAll('.section').forEach(el=>{el.style.opacity='0';el.style.transform='translateY(40px)';el.style.transition='all 0.8s ease-out';observer.observe(el);});
+
+// ===== ANIMACIONES PREMIUM PARA BADGES =====
+// Observador para animar badges cuando entran en vista
+const badgeObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const badge = entry.target;
+      badge.style.animation = 'floatElegant 3s ease-in-out infinite';
+      
+      // Animación de entrada elegante
+      badge.style.opacity = '0';
+      badge.style.transform = 'translateX(-50%) translateY(20px)';
+      
+      setTimeout(() => {
+        badge.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+        badge.style.opacity = '1';
+        badge.style.transform = 'translateX(-50%) translateY(0)';
+      }, 200);
+      
+      badgeObserver.unobserve(badge);
+    }
+  });
+}, { threshold: 0.5 });
+
+// Observar todos los badges
+document.querySelectorAll('.plan-badge, .popular-badge').forEach(badge => {
+  badge.style.opacity = '0';
+  badgeObserver.observe(badge);
+});
+
+// Efecto parallax sutil en las cards
+const cards = document.querySelectorAll('.pricing-card');
+cards.forEach((card, index) => {
+  card.style.transition = 'transform 0.3s ease, box-shadow 0.3s ease';
+  
+  card.addEventListener('mouseenter', () => {
+    card.style.transform = 'translateY(-8px) scale(1.02)';
+  });
+  
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = 'translateY(0) scale(1)';
+  });
+});
+
+console.log('✅ Animaciones premium para badges cargadas');
