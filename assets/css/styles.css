@@ -133,3 +133,30 @@ body{margin:0;font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;ba
 @keyframes spin {
   to { transform: rotate(360deg); }
 }
+
+/* ===== PRICING SECTION - NUEVAS MEJORAS ===== */
+.pricing-section{background:var(--clr-bg-alt)}
+.pricing-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:2rem;margin-top:3rem}
+.pricing-card{text-align:center;padding:2.5rem 2rem;position:relative;transition:var(--transition)}
+.pricing-card.featured{transform:scale(1.05);border:2px solid var(--clr-primary)}
+.pricing-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-lg),var(--shadow-glow)}
+.plan-badge{position:absolute;top:-15px;left:50%;transform:translateX(-50%);background:var(--clr-accent);color:#fff;padding:.5rem 1.5rem;border-radius:20px;font-size:.875rem;font-weight:600}
+.popular-badge{position:absolute;top:-15px;left:50%;transform:translateX(-50%);background:var(--clr-primary);color:#fff;padding:.5rem 1.5rem;border-radius:20px;font-size:.875rem;font-weight:600}
+.pricing-header{margin-bottom:2rem}
+.pricing-header h3{font-size:1.75rem;margin-bottom:.5rem;color:var(--clr-heading)}
+.plan-focus{font-size:1rem;color:var(--clr-primary);font-weight:600;margin-bottom:1rem}
+.pricing-features{list-style:none;margin:2rem 0;text-align:left}
+.pricing-features li{margin-bottom:1rem;display:flex;align-items:center;gap:.75rem}
+.pricing-features li i{color:#22c55e;font-size:1rem}
+.plan-condition{background:rgba(88,166,255,.1);padding:1rem;border-radius:var(--radius);margin:1.5rem 0;border:1px solid rgba(88,166,255,.2)}
+.plan-condition p{margin-bottom:.5rem;font-size:.875rem}
+.plan-condition p:last-child{margin-bottom:0}
+.plan-condition i{color:var(--clr-primary);margin-right:.5rem}
+.pricing-note{text-align:center;margin-top:3rem;padding:1.5rem;background:rgba(88,166,255,.1);border-radius:var(--radius);border:1px solid rgba(88,166,255,.2)}
+.pricing-note i{color:var(--clr-primary);margin-right:.5rem}
+
+/* ===== ANIMACIONES DE ENTRADA ===== */
+@keyframes slideInUp{from{opacity:0;transform:translateY(50px)}to{opacity:1;transform:translateY(0)}}
+.pricing-card{animation:slideInUp .6s ease forwards}
+.pricing-card:nth-child(2){animation-delay:.2s}
+.pricing-card:nth-child(3){animation-delay:.4s}
