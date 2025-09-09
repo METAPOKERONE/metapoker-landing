@@ -1052,3 +1052,132 @@ body{margin:0;font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;ba
   -webkit-backdrop-filter: blur(15px);
   border: 1px solid rgba(255,255,255,0.1);
 }
+
+/* ===== BADGES GRANDES Y LEGIBLES - VERSIÓN IMPACTANTE ===== */
+.plan-badge, .popular-badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.85rem;  /* AUMENTADO de 0.7rem */
+  font-weight: 800;    /* Más grueso */
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  padding: 0.5rem 1rem;  /* AUMENTADO de 0.3rem 0.6rem */
+  border-radius: 14px;   /* Un poco más grande */
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.2);
+  box-shadow: 0 6px 25px rgba(0,0,0,0.15);
+  display: flex;
+  align-items: center;
+  gap: 6px;  /* Más espacio entre icono y texto */
+  white-space: nowrap;
+  z-index: 10;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ICONOS MÁS GRANDES Y MODERNOS */
+.plan-badge::before,
+.popular-badge::before {
+  font-size: 1em;  /* Aumentado de 0.8em */
+  filter: drop-shadow(0 0 8px currentColor);
+}
+
+/* MicroLímites - Rosa vibrante */
+.plan-badge[for="micro"] {
+  background: linear-gradient(135deg, 
+    rgba(236, 72, 153, 0.95), 
+    rgba(239, 68, 68, 0.95));
+  color: #ffffff;
+  text-shadow: 0 0 12px rgba(236, 72, 153, 0.8);
+}
+
+.plan-badge[for="micro"]::before {
+  content: "◆";
+  animation: floatDiamond 3s ease-in-out infinite;
+}
+
+/* Recomendado - Azul eléctrico */
+.popular-badge[for="recommended"] {
+  background: linear-gradient(135deg, 
+    rgba(59, 130, 246, 0.95), 
+    rgba(37, 99, 235, 0.95));
+  color: #ffffff;
+  text-shadow: 0 0 12px rgba(59, 130, 246, 0.8);
+}
+
+.popular-badge[for="recommended"]::before {
+  content: "▲";
+  animation: floatTriangle 2.5s ease-in-out infinite;
+}
+
+/* Elite - Negro con dorado brillante */
+.plan-badge[for="elite"] {
+  background: linear-gradient(135deg, 
+    rgba(0, 0, 0, 0.98), 
+    rgba(17, 24, 39, 0.98));
+  color: #fbbf24;
+  border: 2px solid rgba(251, 191, 36, 0.6);
+  text-shadow: 0 0 12px rgba(251, 191, 36, 0.8);
+}
+
+.plan-badge[for="elite"]::before {
+  content: "●";
+  animation: floatCircle 2s ease-in-out infinite;
+}
+
+/* ESPACIO EXTRA PARA QUE NO QUEDEN APRETADOS */
+.pricing-header {
+  margin-bottom: 4rem;  /* Aumentado de 2.5rem */
+  padding-top: 2.5rem;  /* Aumentado de 2rem */
+}
+
+/* HEADER MÁS GRANDE PARA PROSPERIDAD */
+.pricing-header h3 {
+  font-size: 2.2rem;  /* Aumentado de 2rem */
+  margin-bottom: 0.8rem;
+  font-weight: 800;
+}
+
+.plan-focus {
+  font-size: 1.1rem;  /* Aumentado de 1rem */
+  font-weight: 600;
+}
+
+/* EFECTOS HOVER MÁS IMPACTANTES */
+.pricing-card:hover .plan-badge,
+.pricing-card:hover .popular-badge {
+  transform: translateX(-50%) translateY(-3px) scale(1.08);
+  box-shadow: 0 15px 50px rgba(0,0,0,0.25);
+}
+
+/* RESPONSIVE OPTIMIZADO */
+@media (max-width: 768px) {
+  .plan-badge, .popular-badge {
+    font-size: 0.75rem;  /* Más grande en móvil */
+    padding: 0.4rem 0.8rem;
+    top: -10px;  /* Ajustado para móvil */
+  }
+  
+  .pricing-header h3 {
+    font-size: 1.6rem;  /* Más grande en móvil */
+  }
+}
+
+/* Efecto de brillo adicional */
+.pricing-card::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.pricing-card:hover::after {
+  opacity: 1;
+}

@@ -103,3 +103,76 @@ cards.forEach((card, index) => {
 });
 
 console.log('✅ Animaciones premium para badges cargadas');
+
+// ===== EFECTOS PREMIUM PARA BADGES =====
+// Efecto de entrada dramática
+const badgeObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const badge = entry.target;
+      
+      // Entrada desde arriba con delay escalonado
+      badge.style.opacity = '0';
+      badge.style.transform = 'translateX(-50%) translateY(-20px)';
+      
+      setTimeout(() => {
+        badge.style.transition = 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
+        badge.style.opacity = '1';
+        badge.style.transform = 'translateX(-50%) translateY(0)';
+        
+        // Efecto de brillo inicial
+        badge.style.animation = 'badgeGlow 2s ease-in-out';
+      }, entry.target.dataset.delay || 0);
+      
+      badgeObserver.unobserve(badge);
+    }
+  });
+}, { threshold: 0.3 });
+
+// Aplicar a todos los badges con delay escalonado
+document.querySelectorAll('.plan-badge, .popular-badge').forEach((badge, index) => {
+  badge.style.opacity = '0';
+  badge.dataset.delay = index * 200; // Delay escalonado
+  badgeObserver.observe(badge);
+});
+
+// Efecto parallax en hover
+const cards = document.querySelectorAll('.pricing-card');
+cards.forEach(card => {
+  card.addEventListener('mousemove', (e) => {
+    const badge = card.querySelector('.plan-badge, .popular-badge');
+    if (!badge) return;
+    
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    
+    const rotateX = (y - centerY) / 20;
+    const rotateY = (centerX - x) / 20;
+    
+    badge.style.transform = `translateX(-50%) translateY(-2px) scale(1.05) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+  });
+  
+  card.addEventListener('mouseleave', () => {
+    const badge = card.querySelector('.plan-badge, .popular-badge');
+    if (badge) {
+      badge.style.transform = 'translateX(-50%) translateY(0) scale(1) rotateX(0) rotateY(0)';
+    }
+  });
+});
+
+// CSS para el efecto de brillo
+const style = document.createElement('style');
+style.textContent = `
+@keyframes badgeGlow {
+  0% { filter: drop-shadow(0 0 5px currentColor); }
+  50% { filter: drop-shadow(0 0 20px currentColor) drop-shadow(0 0 40px currentColor); }
+  100% { filter: drop-shadow(0 0 10px currentColor); }
+}
+`;
+document.head.appendChild(style);
+
+console.log('✅ Efectos premium para badges cargados');
