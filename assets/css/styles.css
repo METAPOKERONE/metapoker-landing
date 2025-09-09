@@ -1984,3 +1984,115 @@ body{margin:0;font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;ba
     font-size: 0.8em;
   }
 }
+
+/* ===== ICONOS CENTRADOS ENTRE TEXTO Y NIVELES - BALANCE PERFECTO ===== */
+
+/* Reposicionar iconos en el centro del badge */
+.plan-badge[for="micro"]::before,
+.popular-badge[for="recommended"]::before,
+.plan-badge[for="elite"]::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.1em;
+  margin: 0;
+  padding: 0;
+}
+
+/* Centrar el texto y el icono perfectamente */
+.plan-badge, .popular-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;  /* Espacio entre icono y texto */
+  position: relative;
+  padding-left: 2.5rem;  /* Espacio para el icono */
+  padding-right: 2.5rem;  /* Espacio simétrico */
+}
+
+/* Icono centrado entre texto y bordes */
+.plan-badge::before,
+.popular-badge::before {
+  position: absolute;
+  left: 0.8rem;  /* Posicionado a la izquierda del texto */
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1em;
+  line-height: 1;
+}
+
+/* Centrado perfecto con flexbox */
+.plan-badge span,
+.popular-badge span {
+  position: relative;
+  z-index: 2;
+}
+
+/* EFECTO DE CENTRADO PREMIUM */
+.plan-badge, .popular-badge {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.plan-badge:hover, .popular-badge:hover {
+  gap: 12px;  /* Más espacio en hover */
+  transform: translateX(-50%) translateY(-3px) scale(1.05);
+}
+
+/* ANIMACIÓN DE ENTRADA DESDE EL CENTRO */
+@keyframes badgeSlideIn {
+  0% {
+    transform: translateX(-50%) translateY(-20px) scale(0.8);
+    opacity: 0;
+  }
+  50% {
+    transform: translateX(-50%) translateY(0) scale(1.05);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-50%) translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+.plan-badge, .popular-badge {
+  animation: badgeSlideIn 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  animation-delay: 0.3s;
+}
+
+/* EFECTO DE BRILLO EN EL CENTRO */
+.plan-badge::after,
+.popular-badge::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
+  opacity: 0;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+.plan-badge:hover::after,
+.popular-badge:hover::after {
+  opacity: 1;
+}
+
+/* RESPONSIVE CON CENTRADO PERFECTO */
+@media (max-width: 768px) {
+  .plan-badge, .popular-badge {
+    padding-left: 2rem;
+    padding-right: 2rem;
+    gap: 6px;
+  }
+  
+  .plan-badge::before,
+  .popular-badge::before {
+    left: 0.6rem;
+    font-size: 0.9em;
+  }
+}
