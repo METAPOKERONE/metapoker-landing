@@ -739,3 +739,79 @@ body{margin:0;font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;ba
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(255,255,255,0.1);
 }
+
+/* ===== BADGES ULTRA MODERNOS 2025 ===== */
+.plan-badge, .popular-badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  padding: 0.4rem 0.8rem;
+  border-radius: 16px;
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.15);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+  z-index: 10;
+}
+
+/* Colores Premium */
+.plan-badge {
+  background: linear-gradient(135deg, rgba(251, 207, 232, 0.9), rgba(249, 168, 212, 0.9));
+  color: #831843;
+}
+
+.popular-badge {
+  background: linear-gradient(135deg, rgba(191, 219, 254, 0.9), rgba(147, 197, 253, 0.9));
+  color: #1e40af;
+}
+
+/* Iconos Minimalistas */
+.plan-badge::before { content: "✦"; font-size: 0.8em; }
+.popular-badge::before { content: "❥"; font-size: 0.8em; }
+
+/* Header Premium */
+.pricing-header {
+  margin-bottom: 2rem;
+  padding-top: 1rem;
+}
+
+.pricing-header h3 {
+  font-size: 1.7rem;
+  margin-bottom: 0.5rem;
+  color: var(--clr-heading);
+  font-weight: 700;
+}
+
+.plan-focus {
+  font-size: 0.95rem;
+  color: var(--clr-primary);
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+/* Efectos hover sutiles */
+.pricing-card:hover .plan-badge,
+.pricing-card:hover .popular-badge {
+  transform: translateX(-50%) scale(1.05);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+}
+
+/* Responsive perfecto */
+@media (max-width: 768px) {
+  .plan-badge, .popular-badge {
+    font-size: 0.65rem;
+    padding: 0.3rem 0.6rem;
+  }
+  
+  .pricing-header h3 {
+    font-size: 1.4rem;
+  }
+}
