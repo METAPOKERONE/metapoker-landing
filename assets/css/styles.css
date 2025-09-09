@@ -832,3 +832,20 @@ body{margin:0;font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;ba
   color: #fbbf24;
   border: 1px solid rgba(251, 191, 36, 0.4);
 }
+
+/* ===== COLORES ESPECÍFICOS PARA CADA BADGE ===== */
+.plan-badge[for="micro"] {
+  background: linear-gradient(135deg, rgba(251, 207, 232, 0.9), rgba(249, 168, 212, 0.9));
+  color: #831843;
+}
+
+.plan-badge[for="recommended"] {
+  background: linear-gradient(135deg, rgba(191, 219, 254, 0.9), rgba(147, 197, 253, 0.9));
+  color: #1e40af;
+}
+
+.plan-badge[for="elite"] {
+  background: linear-gradient(135deg, rgba(17, 24, 39, 0.98), rgba(31, 41, 55, 0.98));
+  color: #fbbf24;
+  border: 1px solid rgba(251, 191, 36, 0.4);
+}
